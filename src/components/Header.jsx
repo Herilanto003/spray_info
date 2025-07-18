@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Code, Moon, Sun, Menu, X } from "lucide-react";
+import Logo from "/assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -18,6 +20,26 @@ export default function Header() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  // Fonction pour rediriger vers l'accueil en haut
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    const accueilElement = document.getElementById("accueil");
+    if (accueilElement) {
+      accueilElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      // Si l'élément n'existe pas, scroll vers le haut de la page
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+    setActiveSection("accueil");
+    closeMobileMenu();
   };
 
   // Détecter la section active basée sur le scroll
@@ -57,7 +79,7 @@ export default function Header() {
     { id: "accueil", label: "Accueil" },
     { id: "apropos", label: "À propos" },
     { id: "formations", label: "Formations" },
-    { id: "formateurs", label: "Formateurs" },
+    { id: "formateurs", label: "Equipes" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -72,12 +94,22 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo avec animation */}
           <div className="flex items-center space-x-2 flex-shrink-0 group">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
-              <Code className="h-4 w-4 sm:h-5 sm:w-5 text-white transition-transform duration-300 group-hover:rotate-12" />
-            </div>
-            <span className="text-lg sm:text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-blue-600">
-              Spray_info
-            </span>
+            <a
+              href="#accueil"
+              onClick={handleLogoClick}
+              className="flex items-center space-x-2 group"
+            >
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
+                <img
+                  src={Logo}
+                  alt="Logo Spray_info"
+                  className="h-4 w-4 sm:h-5 sm:w-5 text-white transition-transform duration-300 group-hover:rotate-12"
+                />
+              </div>
+              <span className="text-lg sm:text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-blue-600">
+                Spray_info
+              </span>
+            </a>
           </div>
 
           {/* Desktop Navigation Menu */}

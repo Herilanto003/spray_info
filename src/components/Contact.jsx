@@ -149,7 +149,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex justify-center items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105 w-full"
                 >
                   <Send className="h-5 w-5" />
                   <span>Envoyer le message</span>
@@ -276,30 +276,6 @@ const Contact = () => {
               </h3>
               <p className="text-gray-600 text-sm">
                 Collaboration et opportunités de partenariat
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Map placeholder */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Notre localisation
-            </h2>
-            <p className="text-gray-600">
-              Venez nous rendre visite à notre siège social
-            </p>
-          </div>
-
-          <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">
-                Carte interactive - Localisation Spray_Info
-                <br />
-                RN7, Tanambao Fierenana, Fianarantsoa
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   User,
   ExternalLink,
@@ -67,24 +67,81 @@ const Formateurs = () => {
         "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
     {
-      id: "jean-pierre",
-      name: "LIGNISA Jean Pierre",
-      title: "Co-fondateur & Expert Conseil",
-      specialty: "Transformation Digitale & Conseil",
-      description:
-        "Expert en transformation digitale et conseil stratégique, accompagne les entreprises dans leur évolution technologique.",
-      skills: [
-        "Conseil stratégique",
-        "Transformation digitale",
-        "Gestion d'entreprise",
-        "Formation",
-      ],
+      id: "membre4",
+      name: "Quatrième Membre",
+      title: "Expert & Formateur",
+      specialty: "Spécialité à définir",
+      description: "Description du quatrième membre de l'équipe.",
+      skills: ["Compétence 1", "Compétence 2", "Compétence 3"],
       experience: "5+ années",
-      formation: "Ingénieur ENI Tuléar",
+      formation: "Formation à définir",
       image:
         "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
   ];
+
+  // Composant pour afficher un membre
+  const MembreCard = ({ formateur, index, isTop = false }) => (
+    <motion.div
+      className="flex flex-col items-center text-center"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -10 }}
+    >
+      {/* Image circulaire */}
+      <div className="relative mb-6">
+        <div
+          className={`${
+            isTop ? "w-56 h-56" : "w-48 h-48"
+          } rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-xl`}
+        >
+          <img
+            src={formateur.image}
+            alt={formateur.name}
+            className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+          />
+        </div>
+        {/* Effet de bordure dégradée */}
+        <div
+          className={`absolute inset-0 ${
+            isTop ? "w-56 h-56" : "w-48 h-48"
+          } rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1`}
+        >
+          <div className="w-full h-full rounded-full overflow-hidden">
+            <img
+              src={formateur.image}
+              alt={formateur.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Nom complet */}
+      <h3
+        className={`${
+          isTop ? "text-2xl" : "text-xl"
+        } font-bold text-gray-900 mb-2 max-w-xs`}
+      >
+        {formateur.name}
+      </h3>
+
+      {/* Titre (optionnel) */}
+      <p className="text-blue-600 font-semibold mb-4 text-sm">
+        {formateur.title}
+      </p>
+
+      {/* Bouton Portfolio */}
+      <Link
+        to={`/portfolio/${formateur.id}`}
+        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+      >
+        <span>Voir le portfolio</span>
+        <ExternalLink className="h-4 w-4" />
+      </Link>
+    </motion.div>
+  );
 
   return (
     <div className="min-h-screen pt-16" id="formateurs">
@@ -95,12 +152,10 @@ const Formateurs = () => {
           whileHover={{ scale: 1.05 }}
         >
           <GraduationCap className="h-4 w-4 text-blue-600" />
-          <span className="text-sm font-medium text-blue-800">
-            Nos Formateurs
-          </span>
+          <span className="text-sm font-medium text-blue-800">Nos Equipes</span>
         </motion.div>
 
-        <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
           Une équipe d'experts passionnés et expérimentés
         </motion.p>
       </div>
@@ -108,70 +163,20 @@ const Formateurs = () => {
       {/* Formateurs Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {formateurs.map((formateur) => (
-              <div
+          {/* Premier membre centré en haut */}
+          <div className="flex justify-center mb-16">
+            <MembreCard formateur={formateurs[0]} index={0} isTop={true} />
+          </div>
+
+          {/* Les trois autres membres en bas */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
+            {formateurs.slice(1).map((formateur, index) => (
+              <MembreCard
                 key={formateur.id}
-                className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="h-48 bg-gradient-to-r from-blue-500 to-purple-600 relative">
-                  <img
-                    src={formateur.image}
-                    alt={formateur.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {formateur.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold mb-1">
-                    {formateur.title}
-                  </p>
-                  <p className="text-gray-600 mb-4">{formateur.specialty}</p>
-
-                  <p className="text-gray-700 mb-4 text-sm">
-                    {formateur.description}
-                  </p>
-
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      Compétences :
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {formateur.skills.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center mb-4 text-sm text-gray-600">
-                    <div className="flex items-center space-x-1">
-                      <Award className="h-4 w-4" />
-                      <span>{formateur.experience}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <BookOpen className="h-4 w-4" />
-                      <span>{formateur.formation}</span>
-                    </div>
-                  </div>
-
-                  {/* <Link
-                    to={`/portfolio/${formateur.id}`}
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
-                  >
-                    <span>Voir le portfolio</span>
-                    <ExternalLink className="h-4 w-4" />
-                  </Link> */}
-                </div>
-              </div>
+                formateur={formateur}
+                index={index + 1}
+                isTop={false}
+              />
             ))}
           </div>
         </div>

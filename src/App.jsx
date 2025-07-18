@@ -1,25 +1,25 @@
 import React from "react";
-import Header from "./components/Header";
-import Banner from "./components/Banner";
-import About from "./components/About";
-import Formation from "./components/Formation";
-import Formateurs from "./components/Formateurs";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Contact from "./components/Contact";
+import HomeApp from "./pages/HomeApp";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PortfolioHeriniaina from "./pages/portfolio/PortfolioHeriniaina";
+import PortfolioJeanPierre from "./pages/portfolio/PortfolioJeanPierre";
+import PortfolioSylvestre from "./pages/portfolio/PortfolioSylvestre";
+import PortfolioAras from "./pages/portfolio/PortfolioAras";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Banner />
-      <About />
-      <Formation />
-      <Formateurs />
-      {/* <Hero /> */}
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeApp />} />
+        <Route path="/portfolio/heriniaina" element={<PortfolioHeriniaina />} />
+        <Route
+          path="/portfolio/jean-pierre"
+          element={<PortfolioJeanPierre />}
+        />
+        <Route path="/portfolio/sylvestre" element={<PortfolioSylvestre />} />
+        <Route path="/portfolio/aras" element={<PortfolioAras />} />
+      </Routes>
+    </Router>
   );
 }
 

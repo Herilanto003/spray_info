@@ -10,6 +10,7 @@ import {
   X,
   ChevronRight,
   GraduationCap,
+  Handshake,
 } from "lucide-react";
 
 const About = () => {
@@ -22,6 +23,59 @@ const About = () => {
   const closeModal = () => {
     setActiveModal(null);
   };
+
+  // Données des partenaires
+  const partners = [
+    {
+      id: 1,
+      name: "Société WBS",
+      logo: "/api/placeholder/120/60",
+      description: "École Nationale d'Informatique",
+      category: "Éducation",
+    },
+    {
+      id: 2,
+      name: "ManTek",
+      logo: "/api/placeholder/120/60",
+      description: "Institut de Formation Technique",
+      category: "Formation",
+    },
+    {
+      id: 3,
+      name: "Tsikidia Tour",
+      logo: "/api/placeholder/120/60",
+      description: "Solutions Technologiques",
+      category: "Technologie",
+    },
+    {
+      id: 4,
+      name: "Akatas",
+      logo: "/api/placeholder/120/60",
+      description: "Transformation Digitale",
+      category: "Conseil",
+    },
+    {
+      id: 5,
+      name: "GTV",
+      logo: "/api/placeholder/120/60",
+      description: "Laboratoire d'Innovation",
+      category: "Recherche",
+    },
+    {
+      id: 6,
+      name: "RFA",
+      logo: "/api/placeholder/120/60",
+      description: "Incubateur de Startups",
+      category: "Entrepreneuriat",
+    },
+    {
+      id: 7,
+      name: "Manj’Art",
+      logo: "/api/placeholder/120/60",
+      description: "Services Cloud",
+      category: "Infrastructure",
+    },
+  ];
 
   // Animation variants
   const containerVariants = {
@@ -437,7 +491,7 @@ const About = () => {
               <Users className="h-8 w-8 text-purple-600" />
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-xl font-semibent text-gray-900 mb-3">
                 Spray_idea - Cabinet de conseil
               </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -536,6 +590,197 @@ const About = () => {
           </motion.div>
         </motion.div>
       </Modal>
+
+      {/* Section Partenariats */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.div
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-100 to-red-100 px-4 py-2 rounded-full mb-4"
+              variants={titleVariants}
+            >
+              <Handshake className="h-4 w-4 text-orange-600" />
+              <span className="text-sm font-medium text-orange-800">
+                Nos Partenaires
+              </span>
+            </motion.div>
+
+            <motion.h2
+              className="text-4xl font-bold text-gray-900 mb-4"
+              variants={titleVariants}
+            >
+              Ensemble vers l'excellence
+            </motion.h2>
+
+            <motion.p
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              variants={subtitleVariants}
+            >
+              Découvrez nos partenaires stratégiques qui nous accompagnent dans
+              notre mission de transformation digitale
+            </motion.p>
+          </motion.div>
+
+          {/* Slider de partenaires */}
+          <div className="relative">
+            <div className="overflow-hidden">
+              <motion.div
+                className="flex space-x-8"
+                animate={{
+                  x: [0, -100 * partners.length],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 30,
+                    ease: "linear",
+                  },
+                }}
+                style={{
+                  width: `${partners.length * 2 * 320}px`,
+                }}
+              >
+                {/* Première série de partenaires */}
+                {partners.map((partner) => (
+                  <motion.div
+                    key={`first-${partner.id}`}
+                    className="flex-shrink-0 w-80"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-48 flex flex-col justify-between border border-gray-100">
+                      <div className="flex items-center justify-center mb-4">
+                        <div className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                          <span className="text-gray-500 font-semibold text-sm">
+                            {partner.name}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="text-center">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                          {partner.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-3">
+                          {partner.description}
+                        </p>
+                        <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                          {partner.category}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+
+                {/* Deuxième série de partenaires (pour la continuité) */}
+                {partners.map((partner) => (
+                  <motion.div
+                    key={`second-${partner.id}`}
+                    className="flex-shrink-0 w-80"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-48 flex flex-col justify-between border border-gray-100">
+                      <div className="flex items-center justify-center mb-4">
+                        <div className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                          <span className="text-gray-500 font-semibold text-sm">
+                            {partner.name}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="text-center">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                          {partner.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-3">
+                          {partner.description}
+                        </p>
+                        <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                          {partner.category}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Gradients pour l'effet de fondu */}
+            <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-100 to-transparent pointer-events-none z-10"></div>
+          </div>
+
+          {/* Statistiques des partenariats */}
+          <motion.div
+            className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.div className="text-center" variants={statsVariants}>
+              <div className="text-3xl font-bold text-blue-600 mb-2">8+</div>
+              <div className="text-gray-600">Partenaires Actifs</div>
+            </motion.div>
+
+            <motion.div className="text-center" variants={statsVariants}>
+              <div className="text-3xl font-bold text-green-600 mb-2">15+</div>
+              <div className="text-gray-600">Projets Collaboratifs</div>
+            </motion.div>
+
+            <motion.div className="text-center" variants={statsVariants}>
+              <div className="text-3xl font-bold text-purple-600 mb-2">
+                500+
+              </div>
+              <div className="text-gray-600">Étudiants Bénéficiaires</div>
+            </motion.div>
+
+            <motion.div className="text-center" variants={statsVariants}>
+              <div className="text-3xl font-bold text-orange-600 mb-2">3</div>
+              <div className="text-gray-600">Années de Collaboration</div>
+            </motion.div>
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div
+            className="mt-12 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.div
+              className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border border-gray-100"
+              variants={cardVariants}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Rejoignez notre réseau de partenaires
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Vous souhaitez collaborer avec Spray_Info ? Découvrez comment
+                nous pouvons créer ensemble des synergies pour l'avenir du
+                numérique à Madagascar.
+              </p>
+              <motion.button
+                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Handshake className="mr-2 h-5 w-5" />
+                Devenir Partenaire
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };

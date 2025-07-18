@@ -9,6 +9,7 @@ import {
   Linkedin,
   Code,
 } from "lucide-react";
+import Logo from "/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -18,8 +19,12 @@ const Footer = () => {
           {/* Logo et description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <Code className="h-6 w-6 text-white" />
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
+                <img
+                  src={Logo}
+                  alt="Logo Spray_info"
+                  className="h-4 w-4 sm:h-5 sm:w-5 text-white transition-transform duration-300 group-hover:rotate-12"
+                />
               </div>
               <span className="text-xl font-bold">Spray_Info</span>
             </div>
