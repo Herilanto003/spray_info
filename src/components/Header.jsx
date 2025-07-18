@@ -107,6 +107,7 @@ export default function Header() {
               <span className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-blue-600">
                 Spray_info
               </span>
+              </span>
             </a>
           </div>
 
