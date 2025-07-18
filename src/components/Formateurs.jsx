@@ -122,13 +122,13 @@ const Formateurs = () => {
       <h3
         className={`${
           isTop ? "text-2xl" : "text-xl"
-        } font-bold text-gray-900 mb-2 max-w-xs`}
+        } font-bold text-gray-900 dark:text-white mb-2 max-w-xs`}
       >
         {formateur.name}
       </h3>
 
       {/* Titre (optionnel) */}
-      <p className="text-blue-600 font-semibold mb-4 text-sm">
+      <p className="text-blue-600 dark:text-blue-400 font-semibold mb-4 text-sm">
         {formateur.title}
       </p>
 
@@ -144,7 +144,7 @@ const Formateurs = () => {
   );
 
   return (
-    <div className="min-h-screen pt-16" id="formateurs">
+    <div className="min-h-screen pt-16 dark:bg-gray-900" id="formateurs">
       {/* Hero Section */}
       <div className="flex flex-col items-center justify-center pt-5">
         <motion.div
@@ -156,12 +156,13 @@ const Formateurs = () => {
         </motion.div>
 
         <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
+        <motion.p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center">
           Une équipe d'experts passionnés et expérimentés
         </motion.p>
       </div>
 
       {/* Formateurs Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Premier membre centré en haut */}
           <div className="flex justify-center mb-16">

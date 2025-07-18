@@ -68,7 +68,7 @@ export default function Banner() {
   return (
     <section
       id="accueil"
-      className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 overflow-hidden"
     >
       {/* Éléments de fond animés */}
       <div className="absolute inset-0 overflow-hidden">
@@ -151,7 +151,7 @@ export default function Banner() {
             {/* Titre principal */}
             <motion.div variants={itemVariants} className="space-y-4">
               <motion.h1
-                className="text-4xl sm:text-5xl lg:text-8xl font-bold text-gray-900 leading-tight"
+                className="text-4xl sm:text-5xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-tight"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -173,7 +173,7 @@ export default function Banner() {
               {/* Slogan */}
               <motion.p
                 variants={itemVariants}
-                className="text-xl sm:text-2xl font-medium bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+                className="text-xl sm:text-2xl font-medium bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-blue-600"
               >
                 "De aona fandeani jiaby"
               </motion.p>
@@ -182,7 +182,7 @@ export default function Banner() {
             {/* Description */}
             <motion.div variants={itemVariants} className="space-y-4">
               <motion.p
-                className="text-lg text-gray-600 leading-relaxed max-w-2xl"
+                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
                 whileInView={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -253,14 +253,14 @@ export default function Banner() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div
-                    className="text-2xl sm:text-3xl font-bold text-blue-600"
+                    className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1 + index * 0.2, duration: 0.5 }}
                   >
                     {stat.number}
                   </motion.div>
-                  <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -347,13 +347,13 @@ export default function Banner() {
 
         {/* Indicateur de scroll */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.6 }}
         >
           <motion.div
-            className="flex flex-col items-center space-y-2 text-gray-400 cursor-pointer"
+            className="flex flex-col items-center space-y-2 text-gray-400 dark:text-gray-500 cursor-pointer"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             whileHover={{ scale: 1.1, color: "#3B82F6" }}

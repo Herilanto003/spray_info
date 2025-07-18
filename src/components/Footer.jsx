@@ -13,7 +13,7 @@ import Logo from "/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo et description */}
@@ -23,12 +23,12 @@ const Footer = () => {
                 <img
                   src={Logo}
                   alt="Logo Spray_info"
-                  className="h-4 w-4 sm:h-5 sm:w-5 text-white transition-transform duration-300 group-hover:rotate-12"
+                  className="h-4 w-4 sm:h-5 sm:w-5 text-white dark:text-gray-100 transition-transform duration-300 group-hover:rotate-12"
                 />
               </div>
               <span className="text-xl font-bold">Spray_Info</span>
             </div>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 dark:text-gray-400 mb-4">
               Université Privée, Centre de Formation, Cabinet de Conseil et
               TechnoSupport. Nous démocratisons l'accès à la technologie et
               formons les talents de demain.
@@ -36,19 +36,19 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -62,7 +62,7 @@ const Footer = () => {
               <li>
                 <a
                   to="/about"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
                 >
                   A propos
                 </a>
@@ -70,7 +70,7 @@ const Footer = () => {
               <li>
                 <a
                   to="/formations"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
                 >
                   Nos formations
                 </a>
@@ -78,7 +78,7 @@ const Footer = () => {
               <li>
                 <a
                   to="/formateurs"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
                 >
                   Nos formateurs
                 </a>
@@ -86,7 +86,7 @@ const Footer = () => {
               <li>
                 <a
                   to="/contact"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
                 >
                   Contact
                 </a>
@@ -99,20 +99,20 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300 text-sm">
+                <MapPin className="h-5 w-5 text-blue-400 dark:text-blue-300" />
+                <span className="text-gray-300 dark:text-gray-400 text-sm">
                   RN7, Tanambao Fierenana
                   <br />
                   Fianarantsoa, Madagascar
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300 text-sm">+261 XX XXX XXXX</span>
+                <Phone className="h-5 w-5 text-blue-400 dark:text-blue-300" />
+                <span className="text-gray-300 dark:text-gray-400 text-sm">+261 XX XXX XXXX</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300 text-sm">
+                <Mail className="h-5 w-5 text-blue-400 dark:text-blue-300" />
+                <span className="text-gray-300 dark:text-gray-400 text-sm">
                   contact@spray-info.mg
                 </span>
               </div>
@@ -120,8 +120,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center">
+          <p className="text-gray-400 dark:text-gray-500">
             © 2025 Spray_Info. Tous droits réservés.
           </p>
         </div>

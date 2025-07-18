@@ -4,15 +4,12 @@ import { useState, useEffect } from "react";
 import { Code, Moon, Sun, Menu, X } from "lucide-react";
 import Logo from "/assets/logo.png";
 import { Link } from "react-router-dom";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("accueil");
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -89,7 +86,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm sticky top-0 z-50 transition-all duration-300">
+    <header className="w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo avec animation */}
@@ -107,6 +104,7 @@ export default function Header() {
                 />
               </div>
               <span className="text-lg sm:text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-blue-600">
+              <span className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-blue-600">
                 Spray_info
               </span>
             </a>
@@ -122,11 +120,11 @@ export default function Header() {
                 className={`relative px-3 py-2 text-sm lg:text-base font-medium transition-all duration-300 rounded-lg group overflow-hidden ${
                   activeSection === item.id
                     ? "text-blue-600"
-                    : "text-gray-700 hover:text-blue-600"
+                    : "text-gray-700 dark:text-gray-300 hover:text-blue-600"
                 }`}
               >
                 {/* Effet de fond animé au hover */}
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg"></span>
 
                 {/* Indicateur de page active */}
                 <span
@@ -149,16 +147,16 @@ export default function Header() {
           <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Dark Mode Toggle avec animation */}
             <button
-              onClick={toggleDarkMode}
-              className="relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-300 group overflow-hidden hover:shadow-md"
+              onClick={toggleTheme}
+              className="relative p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group overflow-hidden hover:shadow-md"
               aria-label="Toggle dark mode"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-orange-200 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-orange-200 dark:from-blue-200 dark:to-purple-200 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg"></span>
               <span className="relative z-10 block transition-transform duration-300 group-hover:rotate-180">
                 {isDarkMode ? (
-                  <Sun className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 group-hover:text-orange-600" />
+                  <Sun className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-300 group-hover:text-orange-600" />
                 ) : (
-                  <Moon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 group-hover:text-blue-600" />
+                  <Moon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-600" />
                 )}
               </span>
             </button>
@@ -166,15 +164,15 @@ export default function Header() {
             {/* Mobile Menu Button avec animation */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-300 group overflow-hidden hover:shadow-md"
+              className="md:hidden relative p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group overflow-hidden hover:shadow-md"
               aria-label="Toggle mobile menu"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg"></span>
               <span className="relative z-10 block transition-transform duration-300">
                 {isMobileMenuOpen ? (
-                  <X className="h-5 w-5 text-gray-700 group-hover:text-red-600 transform rotate-0 group-hover:rotate-90 transition-transform duration-300" />
+                  <X className="h-5 w-5 text-gray-700 dark:text-gray-300 group-hover:text-red-600 transform rotate-0 group-hover:rotate-90 transition-transform duration-300" />
                 ) : (
-                  <Menu className="h-5 w-5 text-gray-700 group-hover:text-blue-600 transform group-hover:scale-110 transition-transform duration-300" />
+                  <Menu className="h-5 w-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transform group-hover:scale-110 transition-transform duration-300" />
                 )}
               </span>
             </button>
@@ -183,7 +181,7 @@ export default function Header() {
 
         {/* Mobile Navigation Menu avec animations */}
         <div
-          className={`md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm overflow-hidden transition-all duration-500 ease-in-out ${
+          className={`md:hidden border-t border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm overflow-hidden transition-all duration-500 ease-in-out ${
             isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
@@ -200,14 +198,14 @@ export default function Header() {
                 } ${
                   activeSection === item.id
                     ? "text-blue-600 bg-gradient-to-r from-blue-50 to-purple-50"
-                    : "text-gray-700 hover:text-blue-600"
+                    : "text-gray-700 dark:text-gray-300 hover:text-blue-600"
                 }`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : "0ms",
                 }}
               >
                 {/* Effet de fond animé */}
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg"></span>
 
                 {/* Indicateur de page active pour mobile */}
                 <span

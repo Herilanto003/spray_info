@@ -199,7 +199,7 @@ const Formation = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-50" id="formations">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900" id="formations">
       {/* Hero Section */}
       <div className="flex flex-col items-center justify-center pt-5 pb-8">
         <motion.div
@@ -217,7 +217,7 @@ const Formation = () => {
       </div>
 
       {/* Main Content */}
-      <section className="py-8 bg-white">
+      <section className="py-8 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Image Section - Left */}
@@ -246,7 +246,7 @@ const Formation = () => {
               {formations.map((category, categoryIndex) => (
                 <motion.div
                   key={category.id}
-                  className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                   whileHover={{ y: -5 }}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -261,10 +261,10 @@ const Formation = () => {
                       {category.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                         {category.category}
                       </h3>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">
                         {category.description}
                       </p>
                     </div>
@@ -274,12 +274,12 @@ const Formation = () => {
                     {category.programs.slice(0, 4).map((program, index) => (
                       <div
                         key={index}
-                        className="bg-gray-50 p-3 rounded-lg border border-gray-100"
+                        className="bg-gray-50 dark:bg-gray-600 p-3 rounded-lg border border-gray-100 dark:border-gray-500"
                       >
-                        <h4 className="font-semibold text-gray-900 text-sm mb-1">
+                        <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
                           {program.title}
                         </h4>
-                        <div className="flex items-center space-x-1 text-gray-500">
+                        <div className="flex items-center space-x-1 text-gray-500 dark:text-gray-400">
                           <Clock className="h-3 w-3" />
                           <span className="text-xs">{program.duration}</span>
                         </div>

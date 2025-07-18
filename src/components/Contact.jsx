@@ -35,7 +35,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16" id="contact">
+    <div className="min-h-screen pt-16 dark:bg-gray-900" id="contact">
       {/* Hero Section */}
       <div className="flex flex-col items-center justify-center pt-5">
         <motion.div
@@ -48,24 +48,24 @@ const Contact = () => {
           </span>
         </motion.div>
 
-        <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <motion.p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           Nous sommes là pour répondre à vos questions et vous accompagner
         </motion.p>
       </div>
       {/* Contact Information */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 Envoyez-nous un message
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Nom complet
                   </label>
@@ -78,7 +78,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                       placeholder="Votre nom complet"
                     />
                   </div>
@@ -87,7 +87,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Email
                   </label>
@@ -100,7 +100,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                       placeholder="votre@email.com"
                     />
                   </div>
@@ -109,7 +109,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Sujet
                   </label>
@@ -120,7 +120,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                     placeholder="Sujet de votre message"
                   />
                 </div>
@@ -128,7 +128,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Message
                   </label>
@@ -141,7 +141,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white resize-none"
                       placeholder="Votre message..."
                     />
                   </div>
@@ -159,20 +159,20 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 Informations de contact
               </h2>
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
+                  <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg">
                     <MapPin className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                       Adresse
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       Immeuble moderne, Route Nationale RN7
                       <br />
                       Tanambao Fierenana, Fokontany de Tsaramadroso
@@ -185,38 +185,38 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-green-100 p-3 rounded-lg">
+                  <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
                     <Phone className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                       Téléphone
                     </h3>
-                    <p className="text-gray-600">+261 XX XXX XXXX</p>
+                    <p className="text-gray-600 dark:text-gray-300">+261 XX XXX XXXX</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-100 p-3 rounded-lg">
+                  <div className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg">
                     <Mail className="h-6 w-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                       Email
                     </h3>
-                    <p className="text-gray-600">contact@spray-info.mg</p>
+                    <p className="text-gray-600 dark:text-gray-300">contact@spray-info.mg</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-lg">
+                  <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg">
                     <Clock className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                       Horaires
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       Lundi - Vendredi: 8h00 - 17h00
                       <br />
                       Samedi: 8h00 - 12h00
@@ -231,50 +231,50 @@ const Contact = () => {
         </div>
       </section>
       {/* Services disponibles */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Comment pouvons-nous vous aider ?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               Nos différents services à votre disposition
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <h3 className="text-lg font-semibold mb-2 text-blue-600">
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
                 Formations
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Informations sur nos programmes de formation et inscriptions
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <h3 className="text-lg font-semibold mb-2 text-green-600">
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-lg font-semibold mb-2 text-green-600 dark:text-green-400">
                 Conseil
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Accompagnement stratégique et transformation digitale
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <h3 className="text-lg font-semibold mb-2 text-purple-600">
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-lg font-semibold mb-2 text-purple-600 dark:text-purple-400">
                 Support Technique
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Services informatiques et assistance technique
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <h3 className="text-lg font-semibold mb-2 text-orange-600">
+            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-lg font-semibold mb-2 text-orange-600 dark:text-orange-400">
                 Partenariats
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Collaboration et opportunités de partenariat
               </p>
             </div>

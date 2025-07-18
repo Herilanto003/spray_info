@@ -197,7 +197,7 @@ const About = () => {
   };
 
   return (
-    <div id="apropos" className="min-h-screen pt-16">
+    <div id="apropos" className="min-h-screen pt-16 dark:bg-gray-900">
       {/* Hero Section - Section animée */}
       <div className="flex flex-col items-center justify-center pt-5">
         <motion.div
@@ -211,13 +211,14 @@ const About = () => {
         </motion.div>
 
         <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <motion.p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           "De aona fandeani jiaby" - Votre passerelle vers l'excellence
           technologique
         </motion.p>
       </div>
 
       {/* Summary Cards Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -228,7 +229,7 @@ const About = () => {
           >
             {/* Histoire Card */}
             <motion.div
-              className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               variants={cardVariants}
               whileHover="hover"
             >
@@ -240,9 +241,11 @@ const About = () => {
                 <Calendar className="h-8 w-8 text-white" />
               </motion.div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                 Notre Histoire
               </h3>
               <p className="text-gray-600 text-center mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                 Découvrez le parcours de Spray_Info depuis sa fondation en 2022
                 par trois ingénieurs passionnés jusqu'à son expansion
                 stratégique.
@@ -262,7 +265,7 @@ const About = () => {
 
             {/* Objectifs Card */}
             <motion.div
-              className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               variants={cardVariants}
               whileHover="hover"
             >
@@ -274,9 +277,11 @@ const About = () => {
                 <Target className="h-8 w-8 text-white" />
               </motion.div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                 Nos Objectifs
               </h3>
               <p className="text-gray-600 text-center mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                 Explorez nos objectifs stratégiques : formation professionnelle,
                 université privée Spray_X et cabinet de conseil Spray_idea.
               </p>
@@ -295,7 +300,7 @@ const About = () => {
 
             {/* Missions Card */}
             <motion.div
-              className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               variants={cardVariants}
               whileHover="hover"
             >
@@ -307,9 +312,11 @@ const About = () => {
                 <Award className="h-8 w-8 text-white" />
               </motion.div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                 Nos Missions
               </h3>
               <p className="text-gray-600 text-center mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                 Découvrez nos missions : former les talents Web 3.0, rendre la
                 technologie accessible et accompagner la transformation
                 digitale.
