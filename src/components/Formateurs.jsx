@@ -156,6 +156,7 @@ const Formateurs = () => {
         </motion.div>
 
         <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
+        </motion.p>
         <motion.p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center">
           Une équipe d'experts passionnés et expérimentés
         </motion.p>
