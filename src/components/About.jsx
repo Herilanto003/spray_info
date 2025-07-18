@@ -70,7 +70,7 @@ const About = () => {
     },
     {
       id: 7,
-      name: "Manj’Art",
+      name: "Manj'Art",
       logo: "/api/placeholder/120/60",
       description: "Services Cloud",
       category: "Infrastructure",
@@ -210,7 +210,6 @@ const About = () => {
           </span>
         </motion.div>
 
-        <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto">
         <motion.p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           "De aona fandeani jiaby" - Votre passerelle vers l'excellence
           technologique
@@ -240,11 +239,9 @@ const About = () => {
               >
                 <Calendar className="h-8 w-8 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                 Notre Histoire
               </h3>
-              <p className="text-gray-600 text-center mb-6 leading-relaxed">
               <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                 Découvrez le parcours de Spray_Info depuis sa fondation en 2022
                 par trois ingénieurs passionnés jusqu'à son expansion
@@ -276,11 +273,9 @@ const About = () => {
               >
                 <Target className="h-8 w-8 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                 Nos Objectifs
               </h3>
-              <p className="text-gray-600 text-center mb-6 leading-relaxed">
               <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                 Explorez nos objectifs stratégiques : formation professionnelle,
                 université privée Spray_X et cabinet de conseil Spray_idea.
@@ -311,11 +306,9 @@ const About = () => {
               >
                 <Award className="h-8 w-8 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                 Nos Missions
               </h3>
-              <p className="text-gray-600 text-center mb-6 leading-relaxed">
               <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                 Découvrez nos missions : former les talents Web 3.0, rendre la
                 technologie accessible et accompagner la transformation
@@ -498,7 +491,7 @@ const About = () => {
               <Users className="h-8 w-8 text-purple-600" />
             </div>
             <div>
-              <h3 className="text-xl font-semibent text-gray-900 mb-3">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 Spray_idea - Cabinet de conseil
               </h3>
               <p className="text-gray-600 leading-relaxed">
