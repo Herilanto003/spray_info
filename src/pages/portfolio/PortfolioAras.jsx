@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTheme } from "../../contexts/ThemeContext";
+import ThemeToggle from "../../components/ThemeToggle";
 import {
   ArrowLeft,
   Mail,
@@ -15,6 +17,7 @@ import {
 
 const PortfolioAras = () => {
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
 
   const handleGoBack = () => {
     navigate(-1); // Retourne à la page précédente dans l'historique
@@ -86,13 +89,18 @@ const PortfolioAras = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-16 dark:bg-gray-900">
+      {/* Theme Toggle Button - Fixed position */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle className="shadow-lg" />
+      </div>
+
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8">
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8 dark:from-blue-800 dark:to-indigo-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={handleGoBack}
-            className="inline-flex items-center space-x-2 text-white hover:text-blue-200 transition-colors mb-4 bg-transparent border-none cursor-pointer"
+            className="inline-flex items-center space-x-2 text-white hover:text-blue-200 transition-colors mb-4 bg-transparent border-none cursor-pointer dark:hover:text-blue-300"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Retour</span>
@@ -101,7 +109,7 @@ const PortfolioAras = () => {
       </div>
 
       {/* Profile Header */}
-      <section className="bg-white py-12">
+      <section className="bg-white dark:bg-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-1/3">
@@ -113,28 +121,28 @@ const PortfolioAras = () => {
                 />
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-4">Contact</h3>
+              <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold mb-4 dark:text-white">Contact</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <Mail className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm">heriniaina@spray-info.mg</span>
+                    <span className="text-sm dark:text-gray-300">heriniaina@spray-info.mg</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm">+261 XX XXX XXXX</span>
+                    <span className="text-sm dark:text-gray-300">+261 XX XXX XXXX</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm">Fianarantsoa, Madagascar</span>
+                    <span className="text-sm dark:text-gray-300">Fianarantsoa, Madagascar</span>
                   </div>
                 </div>
 
                 <div className="mt-6 flex space-x-4">
-                  <a href="#" className="text-blue-600 hover:text-blue-800">
+                  <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                     <Github className="h-6 w-6" />
                   </a>
-                  <a href="#" className="text-blue-600 hover:text-blue-800">
+                  <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                     <Linkedin className="h-6 w-6" />
                   </a>
                 </div>
@@ -142,13 +150,13 @@ const PortfolioAras = () => {
             </div>
 
             <div className="lg:w-2/3">
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                 RAMANANJANAHARY Heriniaina Jacquino
               </h1>
-              <p className="text-xl text-blue-600 mb-4">
+              <p className="text-xl text-blue-600 dark:text-blue-400 mb-4">
                 Co-fondateur & Directeur Technique - Spray_Info
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 Expert en développement logiciel avec plus de 5 ans d'expérience
                 dans la conception et le développement d'applications web
                 modernes. Passionné par l'innovation technologique et la
@@ -161,17 +169,17 @@ const PortfolioAras = () => {
                 <div className="bg-blue-50 p-4 rounded-lg text-center">
                   <Code className="h-8 w-8 text-blue-600 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-blue-600">50+</div>
-                  <div className="text-sm text-gray-600">Projets réalisés</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Projets réalisés</div>
                 </div>
                 <div className="bg-green-50 p-4 rounded-lg text-center">
                   <BookOpen className="h-8 w-8 text-green-600 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-green-600">100+</div>
-                  <div className="text-sm text-gray-600">Étudiants formés</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Étudiants formés</div>
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg text-center">
                   <Award className="h-8 w-8 text-purple-600 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-purple-600">5+</div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
                     Années d'expérience
                   </div>
                 </div>
@@ -182,26 +190,26 @@ const PortfolioAras = () => {
       </section>
 
       {/* Expériences */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50 dark:bg-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
             Expériences Professionnelles
           </h2>
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                       {exp.poste}
                     </h3>
-                    <p className="text-blue-600 font-medium">
+                    <p className="text-blue-600 dark:text-blue-400 font-medium">
                       {exp.entreprise}
                     </p>
                   </div>
-                  <span className="text-gray-500 text-sm">{exp.periode}</span>
+                  <span className="text-gray-500 dark:text-gray-400 text-sm">{exp.periode}</span>
                 </div>
-                <p className="text-gray-600">{exp.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">{exp.description}</p>
               </div>
             ))}
           </div>
@@ -209,19 +217,19 @@ const PortfolioAras = () => {
       </section>
 
       {/* Compétences */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
             Compétences Techniques
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {competences.map((comp, index) => (
-              <div key={index} className="bg-gray-50 p-4 rounded-lg">
+              <div key={index} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-medium text-gray-900">{comp.nom}</span>
-                  <span className="text-sm text-gray-600">{comp.niveau}%</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{comp.nom}</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">{comp.niveau}%</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
                   <div
                     className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                     style={{ width: `${comp.niveau}%` }}
@@ -234,39 +242,39 @@ const PortfolioAras = () => {
       </section>
 
       {/* Projets */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50 dark:bg-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
             Projets Récents
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projets.map((projet, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {projet.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{projet.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{projet.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {projet.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
+                      className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
                   <span
                     className={`text-sm px-2 py-1 rounded ${
                       projet.status === "Terminé"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-yellow-100 text-yellow-800"
+                        ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                        : "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200"
                     }`}
                   >
                     {projet.status}
                   </span>
-                  <ExternalLink className="h-4 w-4 text-gray-400" />
+                  <ExternalLink className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                 </div>
               </div>
             ))}
@@ -275,21 +283,21 @@ const PortfolioAras = () => {
       </section>
 
       {/* Formation */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Formation</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Formation</h2>
           <div className="space-y-6">
             {formations.map((form, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg">
+              <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                       {form.diplome}
                     </h3>
-                    <p className="text-blue-600">{form.etablissement}</p>
-                    <p className="text-gray-600">{form.mention}</p>
+                    <p className="text-blue-600 dark:text-blue-400">{form.etablissement}</p>
+                    <p className="text-gray-600 dark:text-gray-300">{form.mention}</p>
                   </div>
-                  <span className="text-gray-500 font-medium">
+                  <span className="text-gray-500 dark:text-gray-400 font-medium">
                     {form.annee}
                   </span>
                 </div>

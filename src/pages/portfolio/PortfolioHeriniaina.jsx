@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTheme } from "../../contexts/ThemeContext";
+import ThemeToggle from "../../components/ThemeToggle";
 import Hero from "../../components/heriniaina/Hero";
 import About from "../../components/heriniaina/About";
 import Skills from "../../components/heriniaina/Skills";
@@ -21,6 +23,7 @@ import {
 
 const PortfolioHeriniaina = () => {
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Faire défiler vers le haut lors du chargement du composant
@@ -109,6 +112,11 @@ const PortfolioHeriniaina = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Theme Toggle Button - Fixed position */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle className="shadow-lg" />
+      </div>
+
       <button
         onClick={handleGoBack}
         className={`fixed top-20 left-4 z-50 inline-flex items-center space-x-2 px-4 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl ${

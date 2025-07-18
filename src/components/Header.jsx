@@ -149,6 +149,7 @@ export default function Header() {
               onClick={toggleTheme}
               className="relative p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 group overflow-hidden hover:shadow-md"
               aria-label="Toggle dark mode"
+              type="button"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-orange-200 dark:from-blue-200 dark:to-purple-200 transform scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg"></span>
               <span className="relative z-10 block transition-transform duration-300 group-hover:rotate-180">

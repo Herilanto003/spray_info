@@ -13,22 +13,29 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Vérifier le localStorage au démarrage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+      // Vérifier la préférence système
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
-    // Vérifier la préférence système
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return false;
   });
 
   useEffect(() => {
     // Appliquer le thème au document
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('theme', 'dark');
+      }
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('theme', 'light');
+      }
     }
   }, [isDarkMode]);
 
@@ -47,4 +54,3 @@ export const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
-};
