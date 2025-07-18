@@ -103,10 +103,8 @@ export default function Header() {
                   className="h-4 w-4 sm:h-5 sm:w-5 text-white transition-transform duration-300 group-hover:rotate-12"
                 />
               </div>
-              <span className="text-lg sm:text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-blue-600">
               <span className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-blue-600">
                 Spray_info
-              </span>
               </span>
             </a>
           </div>
